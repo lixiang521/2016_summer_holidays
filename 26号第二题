@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+class Address
+{
+    string name,address,city,number;
+public:
+    Address(string n="",string a="",string c="",string nu=""):name(n),address(a),city(c),number(nu){}
+    ~Address(){}
+    void ChangeName()
+    {
+        string nam,add,cit,num;
+        cout<<"请输入修改后的姓名、地址、城市、邮编"<<endl;
+        cin>>nam>>add>>cit>>num;
+        name=nam;
+        address=add;
+        city=cit;
+        number=num;
+    }
+    void Display()
+    {
+        cout<<name<<endl<<address<<endl<<city<<endl<<number<<endl<<endl;
+    }
+};
+int main()
+{
+    Address a1;
+    a1.ChangeName();
+    a1.Display();
+    return 0;
+}
