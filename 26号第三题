@@ -1,0 +1,57 @@
+#include<iostream>
+#include<cstring>
+
+using namespace std;
+class product
+{
+    char* tag;
+    double price;
+    int quantity;
+public:
+    product(char *t="",double p=0,int q=0):price(p),quantity(q)
+    {
+        tag=new char[strlen(t)+1];
+        strcpy(tag,t);
+    }
+    ~product()
+    {
+        delete []tag;
+    }
+    bool buy(int want)
+    {
+        double money;
+        if(want>quantity)
+            return false;
+        else
+        {
+            money=price*want;
+            quantity-=want;
+            cout<<money<<endl;
+        }
+    }
+    void Display()
+    {
+        cout<<tag<<endl<<price<<endl<<quantity<<endl<<endl;
+    }
+    void Change()
+    {
+        char *ta;
+        double pri;
+        int quan;
+        cin>>ta>>pri>>quan;
+        tag=ta;
+        price=pri;
+        quantity=quan;
+    }
+};
+int main()
+{
+    product p1("苹果",1.5,50);
+    p1.buy(60);
+    p1.Display();
+    p1.buy(40);
+    p1.Display();
+    p1.Change();
+    p1.Display();
+    return 0;
+}
