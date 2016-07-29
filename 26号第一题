@@ -1,0 +1,55 @@
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+
+class triangle
+{
+    double long1,long2,long3;
+public:
+    triangle(double a=1,double b=1,double c=1):long1(a),long2(b),long3(c){}
+    ~triangle(){}
+    bool panduansan()
+    {
+        if(long1==0||long2==0||long3==0)
+            cout<<"不是直角三角形";
+        else
+        {
+            if(long1+long2>long3&&long1+long3>long2&&long2+long3>long1)
+                cout<<"是三角形";
+            else
+                cout<<"不是三角形";
+        }
+        cout<<endl;
+    }
+    void panduanzhi()
+    {
+        int m,n,p;
+        m=long1*long1;n=long2*long2;p=long3*long3;
+        if(long1==0||long2==0||long3==0)
+            cout<<"不是直角三角形";
+        else
+        {
+            if(m+n==p||m+p==n||n+p==m)
+                cout<<"是直角三角形";
+            else
+                cout<<"不是直角三角形";
+        }
+        cout<<endl;
+    }
+    void getarea()
+    {
+        double p;
+        p=(long1+long2+long3)/2;
+        cout<<"面积是"<<sqrt(p*(p-long1)*(p-long2)*(p-long3))<<endl<<endl;
+    }
+};
+int main()
+{
+    triangle m1(1,2,3),m2,m3(3,4,5),m4(0,0,0);
+    m1.panduansan();m1.panduanzhi();m1.getarea();
+    m2.panduansan();m2.panduanzhi();m2.getarea();
+    m3.panduansan();m3.panduanzhi();m3.getarea();
+    m4.panduansan();m4.panduanzhi();m4.getarea();
+    return 0;
+}
